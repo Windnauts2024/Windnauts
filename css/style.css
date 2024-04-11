@@ -379,7 +379,10 @@ main h2.normal {
 	display: inline-block;	/*簡易的に横並びにする*/
 	padding: 0 10px;		/*上下、左右への余白*/
 }
-
+#footermenu img{
+	width: 1rem;
+	height: 1rem;
+}
 
 /*フッター設定
 ---------------------------------------------------------------------------*/
