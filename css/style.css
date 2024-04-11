@@ -112,7 +112,7 @@ header {
 	background: var(--primary-color);	/*背景色。css冒頭で指定しているテーマカラーを読み込みます*/
 	color: var(--primary-text-color);	/*文字色。css冒頭で指定しているテーマカラーを読み込みます*/
 	text-align: center;
-	padding: 20px 5% 20px 5%;		/*ヘッダー内の余白。上、右、下、左への順番。*/
+	padding: 2px 5% 2px 5%;		/*ヘッダー内の余白。上、右、下、左への順番。*/
 }
 
 
