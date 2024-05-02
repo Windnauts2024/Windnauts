@@ -120,11 +120,18 @@ header {
 	@media screen and (min-width:400px) {
 
 	/*ヘッダーブロック*/
-	header {
+	header-outer {
 		display: flex;					/*flexボックスを使う指定*/
 		justify-content: space-between;	/*並びかたの種類の指定*/
-		align-items: center;			/*垂直揃えの指定。天地中央に配置されるように。*/
+		align-items: center;	
+		position: sticky;		/*垂直揃えの指定。天地中央に配置されるように。*/
+		top: -50px;
 		padding-right: 65px;			/*ヘッダー内の右側の余白の上書き。。*/
+	}
+
+	header-inner{
+		position: sticky;
+		top: 0;
 	}
 
 	}/*追加指定ここまで*/
@@ -311,7 +318,7 @@ a.ddmenu::before {
 異なる画像比率にしたい場合、#mainimg-boxのpadding-topの数字を変更します。もし2:1にするなら50%です。
 ---------------------------------------------------------------------------*/
 #mainimg-box {
-	width: 50%;
+	width:100%;
 	height: 0;
 	padding-top: 45%;
 	position: relative;z-index: -1;
@@ -320,7 +327,7 @@ a.ddmenu::before {
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	width: 100%;
+	width: 50%;
 	height: 100%;
 }
 
