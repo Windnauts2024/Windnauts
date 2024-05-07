@@ -120,7 +120,7 @@ header {
 	@media screen and (min-width:400px) {
 
 	/*ヘッダーブロック*/
-	header-outer {
+	header {
 		display: flex;					/*flexボックスを使う指定*/
 		justify-content: space-between;	/*並びかたの種類の指定*/
 		position: sticky;		/*垂直揃えの指定。天地中央に配置されるように。*/
