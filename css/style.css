@@ -127,6 +127,7 @@ header {
 		position: sticky;		/*垂直揃えの指定。天地中央に配置されるように。*/
 		top: -50px;
 		height: 120px;
+		padding-right: 65px;			/*ヘッダー内の右側の余白の上書き。。*/
 	}
 
 	header-inner{
