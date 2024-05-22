@@ -112,7 +112,7 @@ header {
 	background: var(--primary-color);	/*背景色。css冒頭で指定しているテーマカラーを読み込みます*/
 	color: var(--primary-text-color);	/*文字色。css冒頭で指定しているテーマカラーを読み込みます*/
 	text-align: center;
-	padding: 20px 5% 20px 5%;		/*ヘッダー内の余白。上、右、下、左への順番。*/
+	padding: 2px 5% 2px 5%;		/*ヘッダー内の余白。上、右、下、左への順番。*/
 }
 
 
@@ -123,7 +123,7 @@ header {
 	header {
 		display: flex;					/*flexボックスを使う指定*/
 		justify-content: space-between;	/*並びかたの種類の指定*/
-		align-items: center;			/*垂直揃えの指定。天地中央に配置されるように。*/
+		position: sticky;		/*垂直揃えの指定。天地中央に配置されるように。*/
 		padding-right: 65px;			/*ヘッダー内の右側の余白の上書き。。*/
 	}
 
@@ -171,6 +171,12 @@ header .btn li a {
 ---------------------------------------------------------------------------*/
 #menubar a {display: block;text-decoration: none;}
 #menubar ul {list-style: none;margin: 0;padding: 0;font-family: "Font Awesome 5 Free";}
+.slider{
+	display: none;
+  }
+  .slider.slick-initialized{
+	display: block; /*slick-initializedが付与されたら表示*/
+  }
 #menubar.d-n, #menubar_hdr.d-n, #menubar .ddmenu_parent ul {display: none;}
 #menubar.d-b {display: block;}
 #menubar_hdr.d-b {display: flex;}
@@ -305,7 +311,7 @@ a.ddmenu::before {
 異なる画像比率にしたい場合、#mainimg-boxのpadding-topの数字を変更します。もし2:1にするなら50%です。
 ---------------------------------------------------------------------------*/
 #mainimg-box {
-	width: 100%;
+	width:50%;
 	height: 0;
 	padding-top: 45%;
 	position: relative;z-index: -1;
@@ -334,7 +340,7 @@ main h2 {
 	font-size: 2.8rem;		/*文字サイズ。bodyで指定しているfont-sizeの2.8倍。*/
 	font-weight: normal;	/*h要素のデフォルトの太字を標準にする指定*/
 	letter-spacing: 0.1em;	/*文字間隔を少しだけ広くとる*/
-	margin-bottom: 2em;		/*下に空けるスペース。ここのfont-sizeの2文字分。*/
+	margin-bottom: 0.5em;		/*下に空けるスペース。ここのfont-sizeの2文字分。*/
 }
 
 /*h2の装飾文字部分*/
@@ -353,6 +359,10 @@ main h2.normal {
 	margin-bottom: 0.5em;	/*下に空けるスペース。ここのfont-sizeの2文字分。*/
 }
 
+.explain{
+	margin-bottom: 2rem;
+}
+
 
 /*フッターメニュー
 ---------------------------------------------------------------------------*/
@@ -369,7 +379,10 @@ main h2.normal {
 	display: inline-block;	/*簡易的に横並びにする*/
 	padding: 0 10px;		/*上下、左右への余白*/
 }
-
+#footermenu img{
+	width: 1rem;
+	height: 1rem;
+}
 
 /*フッター設定
 ---------------------------------------------------------------------------*/
@@ -404,7 +417,7 @@ footer .pr {display: block;}
 .list-normal .list h4 {
 	margin: 0;				/*デフォルトマージンを一旦リセット*/
 	margin-bottom: 0.5em;	/*下に少し余白を作る*/
-	font-size: 1.3rem;		/*文字サイズ。bodyで指定しているfont-sizeの1.3倍。*/
+	font-size: 3rem;		/*文字サイズ。bodyで指定しているfont-sizeの1.3倍。*/
 }
 
 /*ボックス内のpタグ*/
@@ -418,6 +431,12 @@ footer .pr {display: block;}
 	
 	.list-normal .list div {
 		flex: 1;
+	}
+
+	.list-normal .list h4 {
+		margin: 0;
+		padding: 0;
+		font-weight: bold;
 	}
 
 	/*ボックス１個あたり*/
@@ -434,6 +453,38 @@ footer .pr {display: block;}
 	}
 
 	}/*追加指定ここまで*/
+
+
+/* TwitterをPCでは横並びにする */
+.timeline {
+	display: flex; /* これで横並びになる */
+	margin-bottom: 20px;
+	width: 100%;
+}
+.timeline p{
+	padding: 5px; /* 1つのツイートの周りに5pxの余白をつける */
+	margin: 10px auto; /* ツイートを中央寄せにする */
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+/* 画面サイズ900px以下ではTwitterを縦並びに変える */
+	@media (max-width: 900px) {
+	.timeline {
+		display: block; /* 横並びを解除 */
+		width: 100%;
+	}
+	.timeline p{
+		padding: 5px; /* 1つのツイートの周りに5pxの余白をつける */
+		margin: 10px auto; /* ツイートを中央寄せにする */
+		margin-bottom: 20px;
+		width: 100%;
+	}
+	}
+
+	.new {
+		margin: 20px;
+	}
 
 
 /*お客様の声で使っているボックス（2カラムブロック（※900px未満では１カラム））
@@ -524,14 +575,16 @@ footer .pr {display: block;}
 
 /*ボックス内のh4タグ*/
 .list-grid .list h4 {
+	font-size: 1.3em;
 	margin: 0;
 }
 
 /*ボックス内のpタグ*/
 .list-grid .list .text p {
 	margin: 0;
-	font-size: 0.8em;	/*文字サイズを80%に*/
+	font-size: 1em;	/*文字サイズを80%に*/
 	line-height: 1.5;	/*行間を少し狭く*/
+	
 }
 
 /*ボックス内のfigure画像*/
@@ -548,6 +601,15 @@ footer .pr {display: block;}
 	padding: 5px 10px;		/*ボタン内の余白*/
 	margin-top: 1rem;		/*ボタンの上に空けるスペース*/
 }
+
+.list-grid .list iframe {
+	aspect-ratio: 16 / 9;
+	width: 100%;
+	height: 100%;
+	border: none;
+	margin-top: 1.7rem;
+  }
+
 
 	/*画面幅900px以上の追加指定*/
 	@media screen and (min-width:900px) {
@@ -639,6 +701,37 @@ footer .pr {display: block;}
 
 	}/*追加指定ここまで*/
 
+/*新歓情報*/
+@media screen and (min-width:900px){
+	.welcome img{
+		width:  60%;
+		margin: auto;
+	}
+	.welcome   div {
+		text-align: center;
+	  }
+}
+
+/*Gallery
+---------------------------------------------------------------------------*/
+/*YouTube*/
+
+.gallery {
+	display: grid;
+	justify-items: center;
+	align-content: center
+}
+.video {
+	aspect-ratio: 16 / 9;
+}
+.gallery p{
+	margin-top: 0.1rem;
+}
+@media screen and (min-width:900px) {
+	.video {
+		width: 800px;
+	}
+}
 
 /*FAQ
 ---------------------------------------------------------------------------*/
