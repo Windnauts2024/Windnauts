@@ -152,7 +152,7 @@ header {
 
 #logo-white{
 	margin: auto;
-	width: 80%;
+	width: 100%;
 	animation: zoomin 3s ease-out forwards;
 }
 @keyframes zoomin {
